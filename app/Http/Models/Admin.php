@@ -45,9 +45,10 @@ class Admin extends Model
     public function search($search){
       $search['page'] =  empty($search['page']) ? 1:$search['page'];
       $search['limit'] = empty($search['limit']) ? 1:$search['limit'];
-    	$data =  $this->offset(($search['page']*$search['limit'])-$search['limit'])
+    	$data["list"] =  $this->offset(($search['page']*$search['limit'])-$search['limit'])
             ->limit($search['limit'])
             ->get();
-        return $data;
+      $this['count'] = $this->count();
+      return $data;
     }
 }
