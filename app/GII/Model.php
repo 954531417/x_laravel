@@ -13,9 +13,19 @@ class {{Model}} extends Model
     {
         parent::__construct($attributes);
     }
+    /**
+     * 删除
+     * @param $id
+     * @return mixed
+     */
     public function del($id){
         return $this->delete($id);
     }
+    /**
+     * 修改
+     * @param $date
+     * @return bool
+     */
     public function edit($date){
         $id = $date['id'];
         $obj =  $this->find($id);
@@ -26,6 +36,11 @@ class {{Model}} extends Model
             return false;
         }
     }
+    /**
+     * 详情数据
+     * @param $id
+     * @return mixed
+     */
     public function Details($id){
         return $this->find($id);
     }
@@ -42,12 +57,18 @@ class {{Model}} extends Model
             return false;
         }
     }
+    /**
+     * 筛选
+     * @param $search
+     * @return mixed
+     */
     public function search($search){
       $search['page'] =  empty($search['page']) ? 1:$search['page'];
       $search['limit'] = empty($search['limit']) ? 1:$search['limit'];
-    	$data =  $this->offset(($search['page']*$search['limit'])-$search['limit'])
+      $data['list'] =  $this->offset(($search['page']*$search['limit'])-$search['limit'])
             ->limit($search['limit'])
             ->get();
+      $data['count'] = $this->count();
         return $data;
     }
 }

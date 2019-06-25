@@ -9,5 +9,13 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function __construct(){
+
+    }
+    public function Success($message="",$data=[]){
+        return ['Error'=>0,'Message'=>$message,'Data'=>$data];
+    }
+    public function Fail($err=403,$message="",$data=[]){
+        return ['Error'=>$err,'Message'=>$message,'Data'=>$data];
+    }
 }

@@ -14,4 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/admin','Admin\AdminController@list');
+Route::get('/back/admin_list','Admin\AdminController@list');
+Route::post('/back/admin_add','Admin\AdminController@add');
