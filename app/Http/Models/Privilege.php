@@ -1,14 +1,14 @@
 <?php
 
-namespace {{MODELPATH}};
+namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class {{Model}} extends Model
+class Privilege extends Model
 {
-    protected $table = '{{Table}}';
+    protected $table = 'privilege';
 	public $timestamps = false;
-    protected $fillable = {{Fillable}};
+    protected $fillable = ['id','pri_name','url','img','parent_id','created_at','updated_at','deleted_at'];
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
@@ -18,9 +18,8 @@ class {{Model}} extends Model
      * @param $id
      * @return mixed
      */
-    public function remove($id){
-        $obj =  $this->find($id);
-        return $obj->delete($id);
+    public function del($id){
+        return $this->delete($id);
     }
     /**
      * 修改

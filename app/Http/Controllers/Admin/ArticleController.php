@@ -1,21 +1,21 @@
 <?php
 
-namespace {{CONTROLLERPATH}};
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Controller;
-use {{MODELPATH}}\{{Model}};
+use App\Http\Models\Article;
 use Illuminate\Support\Facades\Validator;
 
-class {{Controller}}Controller extends Controller
+class ArticleController extends Controller
 {
     //
     public $model;
     public function __construct(){
     	parent::__construct();
-    	$this->model = new {{Model}}();
+    	$this->model = new Article();
         if(Request::isMethod('post')){
-            $this->input = {{Input}};
+            $this->input = ['id','title','content_short','keywords','source_uri','image_uri','cat_id','content','admin_id','click','praise','recommend','created_at','updated_at','deleted_at','display_time'];
             $this->rules = [
             ];
             $this->message = [
@@ -52,6 +52,10 @@ class {{Controller}}Controller extends Controller
      * @return mixed
      */
     public function add(){
+        $id =  Request::input("id");
+        if(!empty($id)){
+            return $this->edit();
+        }
         $data =  Request::only($this->input);
         $validator = Validator::make($data, $this->rules, $this->message);
 

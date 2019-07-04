@@ -1,26 +1,41 @@
 <?php
 
-namespace {{CONTROLLERPATH}};
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Controller;
-use {{MODELPATH}}\{{Model}};
+use App\Http\Models\Admin;
 use Illuminate\Support\Facades\Validator;
 
-class {{Controller}}Controller extends Controller
+class AdminController extends Controller
 {
     //
     public $model;
     public function __construct(){
     	parent::__construct();
-    	$this->model = new {{Model}}();
+    	$this->model = new Admin();
         if(Request::isMethod('post')){
-            $this->input = {{Input}};
+            $this->input = ['id','name','password','avatar','ip','use','created_at','updated_at','deleted_at'];
             $this->rules = [
+                'name'=>'required',
+                'password'=>'required'
             ];
             $this->message = [
+//                'required'=>'必填'
             ];
         }
+    }
+
+    public function login() :array {
+        $data =  Request::only("name",'password');
+        if (empty($data['name'])&&empty($data[''])){
+            return $this->Fail(403,"用户名密码不能为空");
+        }
+        $res = $this->model->login($data);
+        if(!$res){
+            return $this->Fail(301,"验证错误");
+        }
+        return $this->Success("",$res);
     }
 
     /**
@@ -52,9 +67,11 @@ class {{Controller}}Controller extends Controller
      * @return mixed
      */
     public function add(){
+        array_push($this->input,'cpassword');
+        $this->rules["cpassword"] = 'required';
         $data =  Request::only($this->input);
-        $validator = Validator::make($data, $this->rules, $this->message);
 
+        $validator = Validator::make($data, $this->rules, $this->message);
         if (!$validator->passes()){
             return $this->Fail(701,$validator->errors()->first());
         }

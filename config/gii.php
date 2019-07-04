@@ -5,5 +5,5 @@ return [
 //PREFIX=x_
     'CONTROLLERPATH'=>'App'.DIRECTORY_SEPARATOR.'Http'.DIRECTORY_SEPARATOR.'Controllers'.DIRECTORY_SEPARATOR.'Admin',
     'MODELPATH'=>'App'.DIRECTORY_SEPARATOR.'Http'.DIRECTORY_SEPARATOR.'Models',
-    'PREFIX'=>'x_'
+    'PREFIX'=>'blog_'
 ];

@@ -42,7 +42,18 @@ return [
     */
 
     'disks' => [
-
+        'qiniu' => [
+            'driver'  => 'qiniu',
+            'domains' => [
+                'default'   => 'img.upkezhan.cn', //你的七牛域名
+                'https'     => '',         //你的HTTPS域名
+                'custom'    => '',     //你的自定义域名
+            ],
+            'access_key'=> 'D2dMLTYc63TuiJYFUTRoJ_hpR7a-P1S5YgY7PrYT',  //AccessKey
+            'secret_key'=> 'OY8zhNzhpyaaEnm6t7Eb9SMfMbaD__B34n6HjicF',  //SecretKey
+            'bucket'    => 'blog',  //Bucket名字
+            'notify_url'=> '',  //持久化处理回调地址
+        ],
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),

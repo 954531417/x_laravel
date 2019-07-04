@@ -1,26 +1,49 @@
 <?php
 
-namespace {{MODELPATH}};
+namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class {{Model}} extends Model
+class Admin extends Model
 {
-    protected $table = '{{Table}}';
+    protected $table = 'admin';
 	public $timestamps = false;
-    protected $fillable = {{Fillable}};
+    protected $fillable = ['id','name','password','avatar','ip','use','created_at','updated_at','deleted_at'];
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
+    }
+
+    /**
+     * 登陆方法
+     * @param array $data
+     * @return array|bool
+     */
+    public function login(array $data) {
+        $data =  $this->select('id','name','avatar','use','login_at')
+            ->where("name",'=',$data['name'])->where('password','=',sha1($data['password']))
+            ->first();
+        if(empty($data)){
+            return false;
+        }else{
+            $data->login_at = date("Y-m-d h:i:s",time());
+            $data->save();
+            $data->token = $this->setToken($data);
+            return $data;
+        }
+    }
+
+    public function setToken(Object $data) :string {
+        $aes = new Aes(env('AES_KEY'));
+        return  $aes->encrypt(json_encode($data));
     }
     /**
      * 删除
      * @param $id
      * @return mixed
      */
-    public function remove($id){
-        $obj =  $this->find($id);
-        return $obj->delete($id);
+    public function del($id){
+        return $this->delete($id);
     }
     /**
      * 修改
@@ -51,6 +74,7 @@ class {{Model}} extends Model
      * @return bool
      */
     public function add($data){
+        $data['password'] = sha1($data["password"]);
         $this->fill($data);
         if($this->save()){
             return true;

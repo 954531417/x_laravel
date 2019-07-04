@@ -1,21 +1,21 @@
 <?php
 
-namespace {{CONTROLLERPATH}};
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Controller;
-use {{MODELPATH}}\{{Model}};
+use App\Http\Models\Roles;
 use Illuminate\Support\Facades\Validator;
 
-class {{Controller}}Controller extends Controller
+class RolesController extends Controller
 {
     //
     public $model;
     public function __construct(){
     	parent::__construct();
-    	$this->model = new {{Model}}();
+    	$this->model = new Roles();
         if(Request::isMethod('post')){
-            $this->input = {{Input}};
+            $this->input = ['id','role_name','created_at','updated_at','deleted_at'];
             $this->rules = [
             ];
             $this->message = [

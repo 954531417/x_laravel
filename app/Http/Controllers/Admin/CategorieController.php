@@ -1,21 +1,21 @@
 <?php
 
-namespace {{CONTROLLERPATH}};
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Controller;
-use {{MODELPATH}}\{{Model}};
+use App\Http\Models\Categorie;
 use Illuminate\Support\Facades\Validator;
 
-class {{Controller}}Controller extends Controller
+class CategorieController extends Controller
 {
     //
     public $model;
     public function __construct(){
     	parent::__construct();
-    	$this->model = new {{Model}}();
+    	$this->model = new Categorie();
         if(Request::isMethod('post')){
-            $this->input = {{Input}};
+            $this->input = ['id','cat_name','cat_desc','parent_id','sort_order'];
             $this->rules = [
             ];
             $this->message = [

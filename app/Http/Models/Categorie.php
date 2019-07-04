@@ -1,14 +1,14 @@
 <?php
 
-namespace {{MODELPATH}};
+namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class {{Model}} extends Model
+class Categorie extends Model
 {
-    protected $table = '{{Table}}';
+    protected $table = 'categories';
 	public $timestamps = false;
-    protected $fillable = {{Fillable}};
+    protected $fillable = ['id','cat_name','cat_desc','parent_id','sort_order'];
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
@@ -18,9 +18,8 @@ class {{Model}} extends Model
      * @param $id
      * @return mixed
      */
-    public function remove($id){
-        $obj =  $this->find($id);
-        return $obj->delete($id);
+    public function del($id){
+        return $this->delete($id);
     }
     /**
      * 修改
@@ -72,4 +71,8 @@ class {{Model}} extends Model
       $data['count'] = $this->count();
         return $data;
     }
+    public  function list(){
+        return $this->get();
+    }
+
 }
