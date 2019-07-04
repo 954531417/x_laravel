@@ -43,11 +43,11 @@ Route::group(['middleware' =>['token']],function(){
 
 });
 
-Route::get('/categorie_list','Home\CategorieController@list');
-Route::get('/index','Home\IndexController@index');
+Route::get('/api/categorie_list','Home\CategorieController@list');
+Route::get('/api/index','Home\IndexController@index');
 
-Route::get('/info','Home\IndexController@info');
-Route::get('/fabulous','Home\IndexController@fabulous');
+Route::get('/api/info','Home\IndexController@info');
+Route::get('/api/fabulous','Home\IndexController@fabulous');
 
 
 
