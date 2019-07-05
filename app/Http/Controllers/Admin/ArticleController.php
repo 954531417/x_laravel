@@ -27,7 +27,8 @@ class ArticleController extends Controller
      * 列表
      */
     public function list(){
-        $search = Request::only('page','limit');
+        $search = Request::only('page','limit','keyword');
+//        var_dump($search);
         $list = $this->model->search($search);
         return $this->Success("成功",$list);;
     }
