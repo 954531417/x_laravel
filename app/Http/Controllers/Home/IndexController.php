@@ -36,6 +36,7 @@ class IndexController extends Controller
      */
     public function info(){
         $id = \Request::input('id');
+        dd($id);
         $atricleModel =  new Article();
         $atricleModel->Click($id+0);
         $data['details'] = $atricleModel->Details($id);
