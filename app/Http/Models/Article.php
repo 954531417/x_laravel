@@ -160,6 +160,7 @@ class Article extends Model
      */
     public function Click(int $id){
         $obj =  $this->find($id);
+        dd($obj);
         $obj->click = $obj->click +1;
         $obj->save();
         return ;
