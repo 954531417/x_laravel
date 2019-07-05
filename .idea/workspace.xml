@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="88752ec3-f7c9-48f6-b1bc-9468921a6f99" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Home/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Home/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Models/Article.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,8 +81,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Home/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+            <state relative-caret-position="360">
+              <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
               <folding>
                 <element signature="e#47#83#0#PHP" expanded="true" />
               </folding>
@@ -126,6 +125,7 @@
       <find>$this-&gt;table</find>
       <find>remove</find>
       <find>strict</find>
+      <find>Request</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -385,7 +385,7 @@
       <workItem from="1562032571951" duration="7000000" />
       <workItem from="1562072694968" duration="874000" />
       <workItem from="1562119215527" duration="11846000" />
-      <workItem from="1562305473501" duration="1230000" />
+      <workItem from="1562305473501" duration="1517000" />
     </task>
     <task id="LOCAL-00001" summary="admin">
       <created>1561434863597</created>
@@ -412,7 +412,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55173000" />
+    <option name="totallyTimeSpent" value="55460000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="960" extended-state="0" />
@@ -739,8 +739,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Home/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+        <state relative-caret-position="360">
+          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
           <folding>
             <element signature="e#47#83#0#PHP" expanded="true" />
           </folding>
